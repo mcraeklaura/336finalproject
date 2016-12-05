@@ -1,0 +1,30 @@
+.navBar{
+    width: 100%;
+    height: 20px;
+    background-color: black;
+}
+.aButton{
+    margin: 2px;
+    width: 100px;
+    height: inherit;
+    text-align: center;
+    line-height: 40px;
+    font-size: large;
+    display: inline-block;
+}
+
+.title{
+    display: inline-block;
+    color: white;
+    font-size: larger;
+    font-style: italic;
+}
+
+.mainBox{
+    text-align: center;
+    width: 50%;
+    height: fill;
+    border: 2px solid gray;
+    border-radius: 12px;
+    padding: 5px;
+}
