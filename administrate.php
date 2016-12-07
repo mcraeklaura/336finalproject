@@ -127,6 +127,8 @@
                         //Try to update likes and dislikes
                         console.log(data);
                         $("#updatehold").append($("<tr>")
+                        .append($("<th>")
+                                .html("#"))
                             .append($("<th>")
                                 .attr("class", "data")
                                 .html("English"))
@@ -141,6 +143,8 @@
                                 $("<tr>")
                                     .attr("id", "num" + data[i]["ID"])
                                     .attr("onclick", "show_update_bar('" + "num" + data[i]["ID"] + "');")
+                                    .append($("<td>")
+                                        .html(data[i]["ID"]))
                                     .append($("<td>")
                                         .attr("class", "data")
                                         .html(data[i]["phrase_ENG"]))
