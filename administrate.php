@@ -21,6 +21,9 @@
                     Welcome ADMIN
                 </p>
             </div>
+            <a href="generate_report.php">
+                <div class="aButton">Report!</div>
+            </a>
         </div>
         
         <center>
@@ -30,7 +33,7 @@
                <span id="add_item" onclick="add_item_form()"><p>Add item</p></span>
                <div id="hold" style="width:900px;"></div>
                
-               <span id="delete_record" onclick="update_form()"><p>Delete</p></span>
+               <span id="delete_record" onclick="delete_item()"><p>Delete</p></span>
                <div id="delete"></div>
                
                <span id="update_item" onclick="update_form()"><p>Update items</p></span>
@@ -43,6 +46,29 @@
 </html>
 
 <script>
+    
+    var delete_item = function(){
+        $("#delete").empty();
+        $("#delete")
+        .append($("<input>")
+                .attr("type", "number")
+                .attr("id", "numberToDelete"))
+        .append($("<button>")
+            .attr("onclick", "delete_the_thing();")
+            .html("Delete"));   
+    }
+
+    var delete_the_thing = function(k){
+        $.ajax({
+            type: 'post',
+            url: 'delete_items.php',
+            data: {"number":$("#numberToDelete").val()},
+            success: function(data){
+                update_form();
+            }
+        })
+    }
+
     var add_item_form = function(){
         $("#hold").empty();
         $("#hold").append($("<div>")
@@ -114,7 +140,7 @@
                             $("#updatehold").append(
                                 $("<tr>")
                                     .attr("id", "num" + data[i]["ID"])
-                                    .attr("onclick", "show_update_bar(" + "num" + data[i]["ID"] + ");")
+                                    .attr("onclick", "show_update_bar('" + "num" + data[i]["ID"] + "');")
                                     .append($("<td>")
                                         .attr("class", "data")
                                         .html(data[i]["phrase_ENG"]))
@@ -155,6 +181,7 @@
                  
     }
     var show_update_bar = function(id){
+        console.log(id);
                      $("body").append($("<div>")
                         .attr("class", "update_bar")
                             .append($("<input>")
@@ -167,16 +194,21 @@
                                 .attr("value", "Portuguese"))
                             .append($("<button>")
                                 .attr("id", "update_button")
-                                .attr("onlick", "connect_update(" +  id + ")")));
+                                .html("Update")
+                                .attr("onclick", "connect_update('" +  id + "')")));
                  }
                  
                  var connect_update = function(id){
+                     console.log("English value " + $("#update_eng").val());
                      $.ajax({
                         type: 'post',
                         url: 'connect_update.php',
                         data: {"id" : id, "eng_phrase" : $("#update_eng").val(), "por_phrase" : $("#update_port").val()},
                         success: function(data) { 
-                            
+                            update_form();
+                        },
+                        error: function(data){
+                            console.log("You fucked up again");
                         }
                  });
                  }

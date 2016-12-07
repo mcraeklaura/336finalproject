@@ -1,4 +1,5 @@
 <?php
+
 $dbHost = getenv('IP');
 $dbPort = 3306;
 $dbName = "translation_web";
@@ -8,7 +9,10 @@ $password = "";
 $dbConn = new PDO("mysql:host=$dbHost;port=$dbPort;dbname=$dbName", $username, $password);
 $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$sql = "UPDATE phrases SET phrase_ENG ='" . $_POST["eng_phrase"] . "', phrase_PORT ='" . $_POST["por_phrase"] . "' WHERE ID = '" . $_POST["id"] . "'";
+$sql = "SELECT SUM(dislikes) FROM phrases";
 $stmt = $dbConn -> prepare ($sql);
 $stmt -> execute ();
+$max = $stmt->fetch();
+echo json_encode($max);
+
 ?>

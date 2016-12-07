@@ -36,3 +36,12 @@
 .data{
     width:300px;
 }
+
+.update_bar{
+    position: absolute; 
+    bottom: -10;
+    background-color: black;
+    width: 200px;
+    height: 100px;
+    vertical-align: center;
+}
