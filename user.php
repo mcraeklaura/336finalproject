@@ -85,6 +85,13 @@
                         console.log("hiffffff : " + data);
                      }
                  });
+                 
+                 $("#num0").append($("<div>")
+                    .attr("class", ".col-md-4")
+                    .html("Wow, great translation!"));
+                $("#num1").append($("<div>")
+                    .attr("class", ".col-md-4")
+                    .html("Could be better..."));
              </script>
         </table>        
         </div>

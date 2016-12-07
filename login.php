@@ -30,8 +30,11 @@ session_start();
                 </form>
             </div>
         </div>
-        
+        <center>
         <h1>trans<i style="color: #6683AB;">m8</i></h1>
-        
+        <p>
+            <img style="width: 50%; height: 80%" src="user.png"/>
+        </p>
+        </center>
     </body>
 </html>
