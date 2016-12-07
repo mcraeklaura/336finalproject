@@ -14,7 +14,7 @@ function like_dislike(clicked_id, trans_id)
                 temp = "dislikes";
             }
             console.log(trans_id + " " + clicked_id);
-            $("#" + trans_id + " " + "#" + clicked_id + " #" + temp + "_num").html(data);
+            $("#" + trans_id + " " + "#" + clicked_id + " #" + temp + "_num").html(" " + data);
             
         },
         error: function(data) {

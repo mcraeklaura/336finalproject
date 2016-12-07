@@ -39,57 +39,53 @@
                  $.ajax({
                      type: 'post',
                      url: 'populate_page.php',
+                     dataType: 'json',
                      success: function(data) {
                         console.log("We in this bitch!");
                         //Try to update likes and dislikes
-                        for(var i = 0; i < data.length; i++ ){
-                            $("#wrapper").append(
+                        console.log(data);
+                        
+                        for(var i=1; i <= data[0][0]; i++){
+                            $("#translations").append(
                                 $("<tr>")
-                                    .attr("id", "num" + data["ID"])
+                                    .attr("id", "num" + data[i]["ID"])
                                     .append($("<td>")
                                         .attr("class", "data")
-                                        .html(data["phrase_ENG"]))
+                                        .html(data[i]["phrase_ENG"]))
                                     .append($("<td>")
                                         .attr("class", "data")
-                                        .html(data["phrase_PORT"]))
+                                        .html(data[i]["phrase_PORT"]))
                                     .append($("<td>")
-                                        .attr("onclick", "like_dislike('likes', 'num" + data["ID"] + "')")
+                                        .attr("onclick", "like_dislike('likes', 'num" + data[i]["ID"] + "')")
                                         .attr("id", "likes")
                                         .attr("class", "likes")
                                         .append($("<img>")
                                             .attr("src", "img/heart_sprite.png"))
                                         .append($("<span>")
-                                            .attr("id", "likes_num")))
+                                            .attr("id", "likes_num")
+                                            .html(" " + data[i]["likes"])))
                                     .append($("<td>")
-                                        .attr("onclick", "like_dislike('dislikes', 'num" + data["ID"] + "')")
+                                        .attr("onclick", "like_dislike('dislikes', 'num" + data[i]["ID"] + "')")
                                         .attr("id", "dislikes")
                                         .attr("class", "likes")
                                         .append($("<img>")
                                             .attr("src", "img/dislike_sprite.png"))
                                         .append($("<span>")
                                             .attr("id", "dislikes_num")
+                                            .html(" " + data[i]["dislikes"])
                                         )
                                     )
                                 );
                         }
                      },
+                     complete: function(data){
+                         console.log("in complete");
+                     },
                      error: function(data) {
-                        console.log("hi : " + data);
+                        console.log("hiffffff : " + data);
                      }
                  });
              </script>
-             <tr id="num1">
-                 <td class="data">English data</td>
-                 <td class="data">pt data</td>
-                 <td onclick="like_dislike('likes', 'num1')" id="likes" class="likes">
-                     <img src="img/heart_sprite.png"/>
-                     <span id="likes_num"></span>
-                 </td>
-                 <td onclick="like_dislike('dislikes', 'num1')" id="dislikes" class="likes">
-                     <img src="img/dislike_sprite.png"/>
-                     <span id="dislikes_num"></span>
-                 </td>
-             </tr>
         </table>        
         </div>
         </center>

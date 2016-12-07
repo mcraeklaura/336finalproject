@@ -20,6 +20,10 @@ session_start();
         header("Location: login.php");
         exit();
     }
+    else if($_SESSION["username"] == "admin" && $_SESSION["password"] == "admin"){
+        header("Location: administrate.php");
+        exit();
+    }
     else{
         $_SESSION["username"] = $row["username"];
         $_SESSION["password"] = $row["password"];
