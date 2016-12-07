@@ -86,45 +86,9 @@
                      }
                  });
                  
-                 $("#num0").append($("<div>")
-                    .attr("class", ".col-md-4")
-                    .html("Wow, great translation!"));
-                $("#num1").append($("<div>")
-                    .attr("class", ".col-md-4")
-                    .html("Could be better..."));
              </script>
         </table>        
         </div>
         </center>
-        
-         <script>
-        //     // 		$('td likes,dislikes').each(function() {
-		      //    //  var $input = $(this);
-		      //    //  var update = function(e) { 
-		      //    //      var value = $input.val();
-		      //    //      console.log("this is value" + value);
-                        
-        //     //             function updateLikesDis(tag, func){
-        //     //                 $.ajax({
-        //     //                     type: "POST",
-        //     //                     url : 'updateLikesDis.php', 
-        //     //                     success: function(data,status) {
-        //     //                         displayByTag(data);
-        //     //                     },
-        //     //                     complete: function(data,status) { 
-                                
-        //     //                     }
-        //     //                 });
-        //     //             }
-                        
-                        
-		      //    //  }
-
-		      //    //  $(this).on('change', update);
-		      //    //  update();
-
-	       //    // });
-        // </script>
-        
     </body>
 </html>
