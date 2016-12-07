@@ -20,7 +20,7 @@ session_start();
         header("Location: login.php");
         exit();
     }
-    else if($_SESSION["username"] == "admin" && $_SESSION["password"] == "admin"){
+    else if($_POST["username"] == "admin" && $_POST["password"] == "admin"){
         header("Location: administrate.php");
         exit();
     }
