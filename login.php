@@ -1,5 +1,5 @@
 <?php 
-if(isset($_SESSION)){
+if($_SESSION["action"] == "kill"){
     session_destroy();
 }
 session_start(); 
@@ -32,6 +32,13 @@ session_start();
         </div>
         
         <h1>trans<i style="color: #6683AB;">m8</i></h1>
+        <?php
+        if($_SESSION["action"] == "badpassword"){
+            echo "<span style=\"color:red\">Wrong password</span>";
+        }else{
+            echo $_SESSION["action"];
+        }
+        ?>
         
     </body>
 </html>
