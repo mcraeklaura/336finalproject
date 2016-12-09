@@ -10,14 +10,14 @@ $password = "";
         
 $dbConn = new PDO("mysql:host=$dbHost;port=$dbPort;dbname=$dbName", $username, $password);
 $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
-$sql="SELECT COUNT(ID) FROM phrases";
+$sql="SELECT COUNT(ID) FROM phrases WHERE phrase_ENG LIKE '%" . $_POST["search_term"] . "%' OR phrase_PORT LIKE '%" . $_POST["search_term"] . "%'";
 $stmt = $dbConn -> prepare ($sql);
 $stmt -> execute ();
 
 $arr = array();
 $arr[0] = $stmt -> fetch();
 
-$sql = "SELECT * FROM phrases";
+$sql="SELECT * FROM phrases WHERE phrase_ENG LIKE '%" . $_POST["search_term"] . "%' OR phrase_PORT LIKE '%" . $_POST["search_term"] . "%'";
 $stmt = $dbConn -> prepare ($sql);
 $stmt -> execute ();
 

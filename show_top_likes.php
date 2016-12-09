@@ -1,7 +1,4 @@
 <?php
-
-//Connect to the database and combine all the data
-
 $dbHost = getenv('IP');
 $dbPort = 3306;
 $dbName = "translation_web";
@@ -17,7 +14,7 @@ $stmt -> execute ();
 $arr = array();
 $arr[0] = $stmt -> fetch();
 
-$sql = "SELECT * FROM phrases";
+$sql="SELECT * FROM phrases ORDER BY likes DESC";
 $stmt = $dbConn -> prepare ($sql);
 $stmt -> execute ();
 
@@ -25,5 +22,4 @@ while($row = $stmt->fetch()){
     array_push($arr, $row);
 }
 echo json_encode($arr);
-
 ?>
