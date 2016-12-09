@@ -244,6 +244,5 @@
                 </div>
             </div>
         </div>
-        <?php  echo date("m/d H:i") ?>
     </body>
 </html>
