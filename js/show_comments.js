@@ -5,10 +5,10 @@ var show_comments = function(id){
         dataType: 'json',
         data: {"id":id},
         success: function(t){
-            
             console.log(t);
             $("#myModalLabel").empty();
             $("#modal_body").empty();
+            $("#footer").empty();
             $("#myModalLabel").html(t[0][0]);
             $("#modal_body").append(
                 $("<table>")
@@ -21,11 +21,20 @@ var show_comments = function(id){
                         .html("Comment")
                     )
                     .append($("<th>")
-                        .html("Upvotes")
                     )
                 );
-                var goTo = parseInt(t[1][0]) + 2;
-                console.log(goTo);
+            $("#footer").append($("<button>")
+                .attr("type", "button")
+                .attr("class", "btn btn-default")
+                .attr("onclick", "add_comment(" + id + ")")
+                .html("Post")
+            )
+            .append($("<input>")
+                .attr("type", "text")
+                .attr("id", "comment_input")
+            );
+            var goTo = parseInt(t[1][0]) + 2;
+            console.log(goTo);
             for(var i = 2; i < goTo; i++){
                 $("#modal_body_table")
                         .append($("<tr>")
@@ -37,10 +46,12 @@ var show_comments = function(id){
                             )
                             .append($("<td>")
                                 .attr("onclick", "update_upvotes('" + t[i][0] + "')")
-                                .append($("<img>")
-                                    .attr("src", "img/Upvote.png")
+                                
+                                .html("<img src=\"js/heart_sprite.png\"/> ")
+                                .append($("<span>")
+                                    .attr("id", "upvote_id" + t[i][0])
+                                    .html(t[i]["upvotes"])
                                 )
-                                .html(t[i]["upvotes"])
                             )
                             
                         );

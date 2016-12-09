@@ -16,6 +16,9 @@
         <script src="js/filter_by_likes.js"></script>
         <script src="js/like_dislike.js"></script>
         <script src="js/show_comments.js"></script>
+        <script src="js/update_upvotes.js"></script>
+        <script src="js/add_comment.js"></script>
+
         <script type="text/javascript">
             $(document).on("click", "#YourID", function() {
                 alert("Test");
@@ -236,15 +239,11 @@
                     <div class="modal-body" id="modal_body">
                         ...
                     </div>
-                    <div class="modal-footer">
-                        <input type="text" id="comment_input"/>
-                        <button type="button" class="btn btn-default">Post</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                    <div class="modal-footer" id="footer">
                     </div>
                 </div>
             </div>
         </div>
-        
+        <?php  echo date("m/d H:i") ?>
     </body>
 </html>
