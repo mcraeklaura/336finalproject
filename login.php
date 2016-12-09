@@ -11,6 +11,7 @@ session_start();
         <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://bootswatch.com/cerulean/bootstrap.min.css"/>
         <!-- Optional bootstrap theme -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     </head>
@@ -33,7 +34,8 @@ session_start();
         <center>
         <h1>trans<i style="color: #6683AB;">m8</i></h1>
         <p>
-            <img style="width: 50%; height: 80%" src="user.png"/>
+            <img src="img/uml.png"/>
+            <img src="img/userstory.png"/>
             <a href="https://cst336-mcraeklaura.c9users.io/phpmyadmin/">phpmyadmin</a>
         </p>
         </center>
